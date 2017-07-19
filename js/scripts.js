@@ -24,6 +24,8 @@ $(document).ready(function(){
     player1 += tempScore;
     tempScore = 0;
   $("span#player1Score").text(player1);
+  if (player1 >= 100){
+  alert("player1 WINS!!!");
+  }
   });
-
 });
