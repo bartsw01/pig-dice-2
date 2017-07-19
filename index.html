@@ -4,7 +4,7 @@
     <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
    <link href="css/styles.css" rel="stylesheet" type="text/css">
    <script src="js/jquery-3.2.1.js"></script>
-   <script src="js/scripts.js"></script>
+   <script src="js/scripts-copy.js"></script>
     <title>PIG DICE</title>
   </head>
   <body>
@@ -13,15 +13,15 @@
       <form id="player-name">
         <div class="form-group">
           <label for="">Enter player name:</label>
-          <input type="text" name="player-name" id="player=name" class="form-control">
+          <input type="text" name="player-name" id="player1name" class="form-control">
         </div>
-        <button type="submit" class="btn btn-default" name="button">Enter</button>
+        <button type="submit" class="btn btn-default" name="button" >Enter</button>
       </form>
       <div class="panel" id="player1panel">
         <div class="panel-body">
           <p><span id="result"></span></p>
           <p><span id="tempScore"></span></p>
-          <p>Player 1 Score:<span id="player1Score"></span></p>
+          <p>Player 1:<span class="player1Name"></span> Score:<span id="player1Score"></span></p>
           <div class="panel-footer">
             <button type="submit" class="btn btn-success" name="button" id="play-button">Play</button>
             <button type="submit" class="btn btn-primary" name="button" id="roll-button">Roll</button>
