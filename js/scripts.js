@@ -1,65 +1,58 @@
 // Back end
-var player1 = 0;
-var player2 = 0;
-var tempScore = 0;
+function Player(name, score, roll) {
+  this.name = name;
+  this.score = 0;
+  this.roll = 0;
+}
+
+Player.prototype.addTempScore = function (){
+}
+
+Player.prototype.playerName = function() {
+  return this.name;
+}
+
 var rollDice = function() {
   return Math.ceil(Math.random()*6);
 }
 
-
-
 // Front end
 $(document).ready(function(){
-  $("button#roll-button").click(function(event){
+  $("#play-button").click(function(event){
     event.preventDefault();
+    var inputtedPlayerName = $("input#playername").val();
+    // alert(inputtedPlayerName);
+    var newPlayer = new Player(inputtedPlayerName);
+    $(".playerName").text(newPlayer.name);
 
-  var roll = rollDice();
-  $("span#result").text(roll);
-  if (roll === 1){
-    tempScore = 0;
+    $("button#roll-button").click(function(event){
+      event.preventDefault();
+
+    roll = rollDice();
+    $("span#result").text(roll);
+
     if (roll === 1){
-      alert("1 Rolled..... turn over");
-      $("#player1panel").hide();
-      $("#player2panel").show();
-    }
-  } else {
-    tempScore += roll;
-  }
-  $("span#tempScore").text(tempScore);
-  });
+      newPlayer.roll = 0;
+    // alert(newPlayer.roll);
+      if (roll === 1){
+        alert("1 Rolled..... turn over");
 
-  $("button#roll-button2").click(function(event){
-    event.preventDefault();
-
-  var roll = rollDice();
-  $("span#result2").text(roll);
-  if (roll === 1){
-    tempScore = 0;
-    if (roll === 1){
-      alert("1 Rolled..... turn over");
-      $("#player2panel").hide();
-      $("#player1panel").show();
+      }
+    } else {
+      newPlayer.roll += roll;
+    // alert(newPlayer.roll);
     }
-  } else {
-    tempScore += roll;
-  }
-  $("span#tempScore2").text(tempScore);
-  });
-
-  $("button#hold-button").click(function(event){
-    player1 += tempScore;
-    tempScore = 0;
-    $("span#player1Score").text(player1);
-    if (player1 >= 100){
-      alert("player1 WINS!!!");
-    }
-  });
-  $("button#hold-button2").click(function(event){
-    player2 += tempScore;
-    tempScore = 0;
-    $("span#player2Score").text(player2);
-    if (player2 >= 100){
-      alert("player2 WINS!!!");
-    }
+    $("span#tempScore").text(newPlayer.roll);
+    });
+    $("button#hold-button").click(function(event){
+      event.preventDefault();
+      newPlayer.score += newPlayer.roll;
+      newPlayer.roll = 0;
+      $("span#playerScore").text(newPlayer.score);
+      if (newPlayer.score >= 100){
+        alert("player1 WINS!!!");
+      }
+      // $("#player2panel").show();
+    });
   });
 });

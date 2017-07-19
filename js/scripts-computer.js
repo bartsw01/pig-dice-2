@@ -14,10 +14,10 @@ $(document).ready(function(){
     event.preventDefault();
     var player1Name = $("input#player1name").val();
     $(".player1Name").text(player1Name);
-    var player2Name = $("input#player2name").val();
+    var playerComputer =
     $(".player2Name").text(player2Name);
   });
-
+// PLAYER 1
   $("button#roll-button").click(function(event){
     event.preventDefault();
 
@@ -36,24 +36,6 @@ $(document).ready(function(){
   $("span#tempScore").text(tempScore);
   });
 
-  $("button#roll-button2").click(function(event){
-    event.preventDefault();
-
-  var roll = rollDice();
-  $("span#result2").text(roll);
-  if (roll === 1){
-    tempScore2 = 0;
-    if (roll === 1){
-      alert("1 Rolled..... turn over");
-      $("#player2panel").hide();
-      $("#player1panel").show();
-    }
-  } else {
-    tempScore2 += roll;
-  }
-  $("span#tempScore2").text(tempScore);
-  });
-
   $("button#hold-button").click(function(event){
     player1 += tempScore;
     tempScore = 0;
@@ -64,14 +46,5 @@ $(document).ready(function(){
     $("#player1panel").hide();
     $("#player2panel").show();
   });
-  $("button#hold-button2").click(function(event){
-    player2 += tempScore2;
-    tempScore2 = 0;
-    $("span#player2Score").text(player2);
-    if (player2 >= 100){
-      alert("player2 WINS!!!");
-    }
-    $("#player2panel").hide();
-    $("#player1panel").show();
-  });
+
 });
