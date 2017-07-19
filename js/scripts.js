@@ -1,22 +1,21 @@
 // Back end
-var total;
+var player1 = "";
+var player2 = "";
 
-function getRandom() {
-total = Math.ceil(Math.random()*6);
-alert(total);
-return total
+var rollDice = function() {
+  return Math.ceil(Math.random()*6);
 }
 
 
 
 // Front end
 $(document).ready(function(){
-  $("#roll-button").submit(function(event){
+  $("button#roll-button").click(function(event){
     event.preventDefault();
 
-  var rollOutput = getRandom();
+  var roll = rollDice();
 
-  $("#result").text(total);
+  $("span#result").text(roll);
 
   });
 });
