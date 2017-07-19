@@ -20,6 +20,8 @@ var rollDice = function() {
 $(document).ready(function(){
   $("#play-button").click(function(event){
     event.preventDefault();
+    var computerTempScore = 0;
+    var computerTempScore2 = 0;
     var inputtedPlayerName = $("input#playername").val();
     // alert(inputtedPlayerName);
     var newPlayer = new Player(inputtedPlayerName);
@@ -52,7 +54,22 @@ $(document).ready(function(){
       if (newPlayer.score >= 100){
         alert(newPlayer.name + " WINS!!!");
       }
-      // $("#computerpanel").show();
+      alert("Computer Turn");
+      $("#player1panel").hide();
+      $("#computer-panel").show();
+      roll = rollDice();
+      $("span#result2").text(roll);
+      alert(roll);
+      computerTempScore = computerTempScore + roll;
+      alert(computerTempScore);
+      roll = rollDice();
+      alert(roll);
+      computerTempScore2 = computerTempScore + roll;
+      alert(computerTempScore2);
+      alert(newPlayer.name + "Your Turn");
+      $("#player1panel").show();
+      $("#computer-panel").hide();
+
       // run computer dice roll function two times
       // computer presses hold button
       // alert(Your Turn newPlayer.name)
