@@ -2,6 +2,7 @@
 var player1 = 0;
 var player2 = 0;
 var tempScore = 0;
+var tempScore2 = 0;
 var rollDice = function() {
   return Math.ceil(Math.random()*6);
 }
@@ -40,7 +41,7 @@ $(document).ready(function(){
   var roll = rollDice();
   $("span#result2").text(roll);
   if (roll === 1){
-    tempScore = 0;
+    tempScore2 = 0;
     if (roll === 1){
       alert("1 Rolled..... turn over");
       $("#player2panel").hide();
@@ -59,13 +60,17 @@ $(document).ready(function(){
     if (player1 >= 100){
       alert("player1 WINS!!!");
     }
+    $("#player1panel").hide();
+    $("#player2panel").show();
   });
   $("button#hold-button2").click(function(event){
-    player2 += tempScore;
-    tempScore = 0;
+    player2 += tempScore2;
+    tempScore2 = 0;
     $("span#player2Score").text(player2);
     if (player2 >= 100){
       alert("player2 WINS!!!");
     }
+    $("#player2panel").hide();
+    $("#player1panel").show();
   });
 });
