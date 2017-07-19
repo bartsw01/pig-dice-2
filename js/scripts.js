@@ -21,8 +21,8 @@ $(document).ready(function(){
   });
 
   $("button#hold-button").click(function(event){
-    player1 += tempScore
-
+    player1 += tempScore;
+    tempScore = 0;
   $("span#player1Score").text(player1);
   });
 
