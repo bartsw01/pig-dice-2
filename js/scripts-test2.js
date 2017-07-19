@@ -48,6 +48,35 @@ $(document).ready(function(){
     // alert(newPlayer.roll);
       if (roll === 1){
         alert("1 Rolled..... turn over");
+        alert("Computer Turn");
+        $("#player1panel").hide();
+        $("#computer-panel").show();
+        roll = rollDice();
+        $("span#result2").text(roll);
+        if (roll === 1){
+          computerTempScore = 0;
+        // alert(newPlayer.roll);
+          if (roll === 1){
+            alert("1 Rolled..... turn over");
+          }
+        }
+        alert(roll);
+        computerTempScore = computerTempScore + roll;
+        alert(computerTempScore);
+        roll = rollDice();
+        if (roll === 1){
+          computerTempScore = 0;
+
+          if (roll === 1){
+            alert("1 Rolled..... turn over");
+          }
+        }
+        alert(roll);
+        computerTempScore2 = computerTempScore + roll;
+        alert(computerTempScore2);
+        alert(newPlayer.name + "Your Turn");
+        $("#player1panel").show();
+        $("#computer-panel").hide();
 
       }
     } else {
@@ -69,10 +98,35 @@ $(document).ready(function(){
       $("#computer-panel").show();
       roll = rollDice();
       $("span#result2").text(roll);
-      alert(roll);
-      computerTempScore = computerTempScore + roll;
-      alert(computerTempScore);
-      roll = rollDice();
+
+      while (roll !==1) {
+        computerTempScore = computerTempScore + roll;
+        alert(roll);
+        alert(computerTempScore);
+        roll = rollDice();
+      }
+
+      if (roll === 1){
+        computerTempScore = 0;
+      // alert(newPlayer.roll);
+        if (roll === 1){
+          // return false;
+          alert("1 Rolled..... turn over");
+
+        }
+      } else if (roll !==1) {
+        alert(roll);
+        computerTempScore = computerTempScore + roll;
+        alert(computerTempScore);
+        roll = rollDice();
+        if (roll === 1){
+          computerTempScore = 0;
+      }
+
+        if (roll === 1){
+          alert("1 Rolled..... turn over");
+        }
+      }
       alert(roll);
       computerTempScore2 = computerTempScore + roll;
       alert(computerTempScore2);
