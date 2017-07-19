@@ -14,9 +14,19 @@ $(document).ready(function(){
     event.preventDefault();
 
   var roll = rollDice();
-  tempScore += roll;
-
   $("span#result").text(roll);
+  if (roll === 1){
+    tempScore = 0;
+    if (roll === 1){
+      alert("1 Rolled..... turn over");
+      $("#player1panel").hide();
+      $("#player2panel").show();
+    }
+  } else {
+    tempScore += roll;
+  }
+
+
   $("span#tempScore").text(tempScore);
   });
 
@@ -26,6 +36,7 @@ $(document).ready(function(){
   $("span#player1Score").text(player1);
   if (player1 >= 100){
   alert("player1 WINS!!!");
+
   }
   });
 });
