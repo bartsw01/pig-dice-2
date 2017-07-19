@@ -1,7 +1,7 @@
 // Back end
 var player1 = "";
 var player2 = "";
-
+var tempScore = 0;
 var rollDice = function() {
   return Math.ceil(Math.random()*6);
 }
@@ -14,8 +14,9 @@ $(document).ready(function(){
     event.preventDefault();
 
   var roll = rollDice();
+  tempScore += roll;
 
   $("span#result").text(roll);
-
+  $("span#tempScore").text(tempScore);
   });
 });
